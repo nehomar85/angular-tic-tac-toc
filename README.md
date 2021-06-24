@@ -1,5 +1,3 @@
-# angular-ivy-6ymapu
-
-TIC-TAC-TOC APP
+# TIC-TAC-TOC App
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-6ymapu)
