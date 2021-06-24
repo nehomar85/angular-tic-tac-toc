@@ -1,0 +1,92 @@
+/* Estilo del Body del html*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+/* Estilo del Div, mantiene el bloque centrado*/
+div {
+  margin: auto;
+  text-align: center;
+}
+
+/* Estilo class del Button dentro del tablero */
+.cuadro {
+  height: 40px;
+  width: 40px;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
+  border: 1px solid #fff;
+  background-color: #fff;
+}
+
+button[disabled] {
+  background-color: #ebebeb;
+}
+
+/* Estilos TABLE TR y TD para aspecto al tablero de tres en raya */
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+tr.border-bottom td {
+  border-bottom: 4px solid aquamarine;
+  border-collapse: collapse;
+}
+
+td.left {
+  border-left: 4px solid aquamarine;
+}
+
+td.right {
+  border-right: 4px solid aquamarine;
+}
+
+/* Estilos class de los jugadores dentro del tablero */
+.color-jugadorX {
+  color: rgb(45, 175, 45);
+}
+
+.color-jugadorO {
+  color: rgb(175, 60, 45);
+}
+
+.color-ganador {
+  color: rgb(228, 117, 13);
+}
+
+/* Estilos class de los inputs JugadorX y jugadorO */
+.inputEstilo {
+  padding: 3px;
+  border-width: 1px;
+  border-color: #cccccc;
+  width: 90px;
+  color: #000000;
+  border-style: solid;
+  border-radius: 3px;
+  border-bottom: 2px solid #1babcf;
+  box-shadow: 0px 0px 2px rgba(160, 144, 144, 0.75);
+  text-shadow: 0px 0px 0px rgba(66, 66, 66, 0.75);
+}
+
+/* Estilos class de los buttons NuevoJuevo y Revancha */
+.buttonEstilo {
+  padding: 3px;
+  font-size: 14px;
+  border-width: 2px;
+  border-color: #1babcf;
+  background-color: #f2f5f8;
+  color: #1babcf;
+  border-style: double;
+  border-radius: 6px;
+  box-shadow: 0px 0px 3px rgba(160, 144, 144, 0.75);
+  text-shadow: 0px 0px 0px rgba(255, 255, 255, 0.76);
+}
+
+/* Estilos class de los buttons al pasar el cursor */
+.buttonEstilo:hover {
+  background-color: #0b92b4;
+  color: #fff;
+}

@@ -1,0 +1,80 @@
+<body>
+  <!-- Inicia un nuevo juego en limpio. No acumula las Partidas jugadas. Permanecen deshabilitado los inputs de los jugadores hasta que se clickea "Nuevo Juego", indicando qué turno empieza (X/O) -->
+  <div>
+    <br/><br/>
+    <input type="button" class="buttonEstilo" value="Nuevo Juego" (click)="nuevoJuego()">&nbsp;
+    <input type="button" class="buttonEstilo" value="Limpiar" (click)="limpiar()">
+    <br/><br/>
+    <label>X: </label> <input type="text" class="inputEstilo" [(ngModel)] = "jugadorX"  [disabled]="deshabilita">&nbsp;
+    <label>O: </label> <input type="text" class="inputEstilo" [(ngModel)] = "jugadorO"   [disabled]="deshabilita">
+    <br/><br/>
+  </div>
+
+  <!-- El DIV sólo se muestra si los inputs de Jugador X y O están distintos a vacíos. Se genera el tablero con buttons, donde el evento click marca la posicion (marcarPosicion) y disabled se inicializa en false. Dependiendo del Turno (X/O) se condiciona la clase del button (ngClass) para darle el estilo del color al jugador -->
+  <div *ngIf="(jugadorX && jugadorO) != '' ">
+    <table>
+      <tr class="border-bottom">
+        <!-- Las líneas del tablero 3 en raya, se genera mediante css para los tr, td y buttons (border-bottom, right, left) -->
+        <td class="right">
+          <button (click)="marcarPosicion(0,0)" [ngClass]="[posicion[0][0] == 'X' ? 'cuadro color-jugadorX' : 'cuadro color-jugadorO']" [disabled]="deshabilita">{{posicion[0][0]}}</button>
+        </td>
+        <td class="left right">
+          <button (click)="marcarPosicion(0,1)" [ngClass]="[posicion[0][1] == 'X' ? 'cuadro color-jugadorX' : 'cuadro color-jugadorO']" [disabled]="deshabilita">{{posicion[0][1]}}</button>
+        </td>
+        <td>
+          <button (click)="marcarPosicion(0,2)" [ngClass]="[posicion[0][2] == 'X' ? 'cuadro color-jugadorX' : 'cuadro color-jugadorO']" [disabled]="deshabilita">{{posicion[0][2]}}</button>
+        </td>
+      </tr>
+      <tr class="border-bottom">
+        <td>
+          <button (click)="marcarPosicion(1,0)" [ngClass]="[posicion[1][0] == 'X' ? 'cuadro color-jugadorX' : 'cuadro color-jugadorO']" [disabled]="deshabilita">{{posicion[1][0]}}</button>
+        </td>
+        <td class="left right">
+          <button (click)="marcarPosicion(1,1)" [ngClass]="[posicion[1][1] == 'X' ? 'cuadro color-jugadorX' : 'cuadro color-jugadorO']" [disabled]="deshabilita">{{posicion[1][1]}}</button>
+        </td>
+        <td>
+          <button (click)="marcarPosicion(1,2)" [ngClass]="[posicion[1][2] == 'X' ? 'cuadro color-jugadorX' : 'cuadro color-jugadorO']" [disabled]="deshabilita">{{posicion[1][2]}}</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button (click)="marcarPosicion(2,0)" [ngClass]="[posicion[2][0] == 'X' ? 'cuadro color-jugadorX' : 'cuadro color-jugadorO']" [disabled]="deshabilita">{{posicion[2][0]}}</button>
+        </td>
+        <td class="left right">
+          <button (click)="marcarPosicion(2,1)" [ngClass]="[posicion[2][1] == 'X' ? 'cuadro color-jugadorX' : 'cuadro color-jugadorO']" [disabled]="deshabilita">{{posicion[2][1]}}</button>
+        </td>
+        <td>
+          <button (click)="marcarPosicion(2,2)" [ngClass]="[posicion[2][2] == 'X' ? 'cuadro color-jugadorX' : 'cuadro color-jugadorO']" [disabled]="deshabilita">{{posicion[2][2]}}</button>
+        </td>
+      </tr>
+    </table>
+    <br/>
+
+    <!-- Revancha, inicia un nuevo juego manteniendo el acumulado de las partidas ganadas/empatadas anteriormente. Habilita el tablero, la modificación de jugadores e indica el próximo turno en empezar a jugar (X/O) -->
+    <input type="button" class="buttonEstilo" value="Revancha" (click)="inicializar()">
+    <br/><br/>
+
+    <!-- Se genera tabla con los nombres de los jugadores escritos en cada input (X/O), se lleva la cuenta de #juego en la modalidad Revancha (acumulativo). Indica el nombre del Ganador en el último campo, en caso de empate, se genera "Empate" -->
+    <table border=1>
+      <tr style="background: #ebebeb">
+        <th># Juego</th>
+        <th>Jugador X</th>
+        <th>Jugador O</th>
+        <th>Ganador</th>
+      </tr>
+      <tr *ngFor="let i of juegos; index as id">
+        <td>{{id +1}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+      </tr>
+    </table>
+    <br/>
+  </div>
+</body>
+
+<!-- INTEGRANTES:
+ANDRES TORRES,
+FREDY RODRIGUEZ,
+NEHOMAR HERRERA
+-->
